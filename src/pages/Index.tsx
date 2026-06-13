@@ -221,7 +221,7 @@ export default function Index() {
             </p>
 
             <a
-              href="https://yandex.ru/maps/?text=Самара%2C+ул.+Советская+Армия%2C+180%2F3"
+              href="https://yandex.ru/maps/?pt=50.100202,53.195878&z=17&l=map"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block mt-8 border border-stone-300 text-stone-600 px-8 py-3 text-xs tracking-[0.25em] uppercase font-light hover:bg-stone-800 hover:text-white hover:border-stone-800 transition-all duration-300"
