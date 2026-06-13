@@ -220,9 +220,14 @@ export default function Index() {
               г. Самара, ул. Советская Армия, д. 180/3
             </p>
 
-            <button className="mt-8 border border-stone-300 text-stone-600 px-8 py-3 text-xs tracking-[0.25em] uppercase font-light hover:bg-stone-800 hover:text-white hover:border-stone-800 transition-all duration-300">
+            <a
+              href="https://yandex.ru/maps/?text=Самара%2C+ул.+Советская+Армия%2C+180%2F3"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-8 border border-stone-300 text-stone-600 px-8 py-3 text-xs tracking-[0.25em] uppercase font-light hover:bg-stone-800 hover:text-white hover:border-stone-800 transition-all duration-300"
+            >
               Маршрут на карте
-            </button>
+            </a>
           </FadeSection>
         </div>
       </section>
@@ -278,15 +283,9 @@ export default function Index() {
 
             <div className="mt-8 space-y-6">
               <div>
-                <p className="text-xs tracking-[0.2em] uppercase text-stone-400 font-light mb-1">Телефон</p>
-                <a href="tel:+79001234567" className="font-cormorant text-2xl text-stone-700 hover:text-stone-900 transition-colors">
-                  +7 (900) 123-45-67
-                </a>
-              </div>
-              <div>
-                <p className="text-xs tracking-[0.2em] uppercase text-stone-400 font-light mb-1">Email</p>
-                <a href="mailto:wedding@example.com" className="font-cormorant text-2xl text-stone-700 hover:text-stone-900 transition-colors">
-                  wedding@example.com
+                <p className="text-xs tracking-[0.2em] uppercase text-stone-400 font-light mb-1">Оксана</p>
+                <a href="tel:+79170172193" className="font-cormorant text-2xl text-stone-700 hover:text-stone-900 transition-colors">
+                  +7 (917) 017-21-93
                 </a>
               </div>
             </div>
