@@ -128,11 +128,11 @@ export default function Index() {
             }}
           >
             <h1 className="font-cormorant font-light text-[clamp(3rem,10vw,6.5rem)] leading-none text-stone-800 tracking-tight">
-              Анна
+              Оксана
               <span className="block text-[clamp(1.5rem,5vw,3rem)] text-stone-400 font-light tracking-[0.2em] my-3">
                 &amp;
               </span>
-              Михаил
+              Даниил
             </h1>
           </div>
 
@@ -145,7 +145,7 @@ export default function Index() {
             <div className="flex items-center gap-4 mt-10 mb-10">
               <div className="flex-1 h-px bg-stone-300" />
               <p className="font-cormorant italic text-stone-500 text-xl tracking-wider">
-                14 сентября 2025
+                22 августа 2026
               </p>
               <div className="flex-1 h-px bg-stone-300" />
             </div>
@@ -175,7 +175,7 @@ export default function Index() {
             <div className="absolute -inset-3 border border-stone-200" />
             <img
               src={COUPLE_PHOTO}
-              alt="Анна и Михаил"
+              alt="Оксана и Даниил"
               className="w-full aspect-[4/5] object-cover"
               style={{ filter: "grayscale(15%)" }}
             />
@@ -189,24 +189,16 @@ export default function Index() {
           <FadeSection>
             <p className="text-xs tracking-[0.35em] uppercase text-stone-400 mb-6 font-light">Дата торжества</p>
             <h2 className="font-cormorant text-[clamp(2.5rem,7vw,4.5rem)] font-light text-stone-800 leading-tight">
-              14 сентября
+              22 августа
             </h2>
-            <p className="font-cormorant italic text-2xl text-stone-500 mt-1">2025 года</p>
+            <p className="font-cormorant italic text-2xl text-stone-500 mt-1">2026 года</p>
 
             <Divider />
 
-            <div className="mt-8 grid grid-cols-3 gap-6 text-center">
+            <div className="mt-8 grid grid-cols-1 gap-6 text-center">
               <div>
-                <p className="font-cormorant text-4xl font-light text-stone-800">14:00</p>
-                <p className="text-xs tracking-[0.2em] uppercase text-stone-400 mt-1 font-light">Церемония</p>
-              </div>
-              <div className="border-x border-stone-100 px-4">
-                <p className="font-cormorant text-4xl font-light text-stone-800">16:00</p>
-                <p className="text-xs tracking-[0.2em] uppercase text-stone-400 mt-1 font-light">Фотосессия</p>
-              </div>
-              <div>
-                <p className="font-cormorant text-4xl font-light text-stone-800">18:00</p>
-                <p className="text-xs tracking-[0.2em] uppercase text-stone-400 mt-1 font-light">Банкет</p>
+                <p className="font-cormorant text-4xl font-light text-stone-800">15:30</p>
+                <p className="text-xs tracking-[0.2em] uppercase text-stone-400 mt-1 font-light">Сбор гостей</p>
               </div>
             </div>
           </FadeSection>
@@ -219,14 +211,13 @@ export default function Index() {
           <FadeSection>
             <p className="text-xs tracking-[0.35em] uppercase text-stone-400 mb-6 font-light">Место проведения</p>
             <h2 className="font-cormorant text-4xl font-light text-stone-800 mb-3">
-              Ресторан «Белый зал»
+              Ресторан «Променад»
             </h2>
 
             <Divider />
 
             <p className="text-stone-500 mt-6 leading-relaxed font-light text-sm tracking-wide">
-              г. Москва, ул. Пречистенка, 17<br />
-              <span className="text-stone-400">м. Кропоткинская, 5 минут пешком</span>
+              г. Самара, ул. Советская Армия, д. 180/3
             </p>
 
             <button className="mt-8 border border-stone-300 text-stone-600 px-8 py-3 text-xs tracking-[0.25em] uppercase font-light hover:bg-stone-800 hover:text-white hover:border-stone-800 transition-all duration-300">
@@ -241,7 +232,7 @@ export default function Index() {
         <div className="max-w-xl mx-auto text-center">
           <FadeSection>
             <p className="text-xs tracking-[0.35em] uppercase text-stone-400 mb-8 font-light">До нашего дня</p>
-            <Countdown targetDate="2025-09-14" />
+            <Countdown targetDate="2026-08-22" />
           </FadeSection>
         </div>
       </section>
@@ -261,11 +252,11 @@ export default function Index() {
 
             <div className="mt-10 grid grid-cols-2 gap-12">
               <div className="text-center">
-                <p className="font-cormorant text-5xl font-light text-stone-800">Анна</p>
+                <p className="font-cormorant text-5xl font-light text-stone-800">Оксана</p>
                 <p className="text-stone-400 text-xs tracking-[0.2em] uppercase mt-2 font-light">Невеста</p>
               </div>
               <div className="text-center">
-                <p className="font-cormorant text-5xl font-light text-stone-800">Михаил</p>
+                <p className="font-cormorant text-5xl font-light text-stone-800">Даниил</p>
                 <p className="text-stone-400 text-xs tracking-[0.2em] uppercase mt-2 font-light">Жених</p>
               </div>
             </div>
@@ -305,7 +296,7 @@ export default function Index() {
 
       {/* Footer */}
       <footer className="py-12 px-6 border-t border-stone-100 text-center">
-        <p className="font-cormorant italic text-xl text-stone-400">Анна &amp; Михаил · 14.09.2025</p>
+        <p className="font-cormorant italic text-xl text-stone-400">Оксана &amp; Даниил · 22.08.2026</p>
         <p className="text-xs text-stone-300 mt-2 tracking-wider font-light">С любовью ждём вас</p>
       </footer>
     </div>
