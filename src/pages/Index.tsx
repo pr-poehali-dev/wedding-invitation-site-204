@@ -99,9 +99,10 @@ export default function Index() {
       {/* Hero */}
       <section className="relative min-h-screen flex flex-col items-center justify-center px-6 py-24 overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-cover"
           style={{
             backgroundImage: `url(${HERO_PHOTO})`,
+            backgroundPosition: "center 30%",
             opacity: 0.22,
             filter: "grayscale(20%)",
           }}
