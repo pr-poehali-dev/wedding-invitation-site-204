@@ -246,11 +246,9 @@ export default function Index() {
       <section className="py-20 px-6 bg-white">
         <div className="max-w-2xl mx-auto">
           <FadeSection className="text-center">
-            <p className="text-xs tracking-[0.35em] uppercase text-stone-400 mb-8 font-light">История любви</p>
             <blockquote className="font-cormorant italic text-2xl text-stone-600 leading-relaxed font-light">
-              «Мы встретились однажды — и поняли,<br className="hidden md:block" />
-              что всё, что было до, было лишь путём<br className="hidden md:block" />
-              навстречу друг другу.»
+              «Даниил обещал дарить цветы, а Оксана — не пилить по пустякам.<br className="hidden md:block" />
+              Приходите посмотреть на людей, которые наивно в это верят!»
             </blockquote>
 
             <Divider />
@@ -276,7 +274,7 @@ export default function Index() {
             <p className="text-xs tracking-[0.35em] uppercase text-stone-400 mb-6 font-light">Контакты</p>
             <h2 className="font-cormorant text-3xl font-light text-stone-800 mb-2">Будем рады вашему присутствию</h2>
             <p className="text-stone-400 text-sm font-light mb-10 tracking-wide">
-              По всем вопросам обращайтесь к организатору
+              По всем вопросам обращайтесь к невесте
             </p>
 
             <Divider />
