@@ -84,11 +84,12 @@ function Countdown({ targetDate }: { targetDate: string }) {
   );
 }
 
-const DRINKS = ["Вино красное", "Вино белое", "Шампанское", "Виски", "Пиво", "Безалкогольное", "Сок", "Вода"];
+const DRINKS = ["Вино красное", "Вино белое", "Шампанское", "Виски", "Коньяк", "Водка", "Пиво", "Безалкогольное", "Сок", "Вода"];
 
 function GuestForm() {
   const [name, setName] = useState("");
   const [drinks, setDrinks] = useState<string[]>([]);
+  const [otherDrink, setOtherDrink] = useState("");
   const [allergies, setAllergies] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
@@ -103,11 +104,11 @@ function GuestForm() {
       const res = await fetch("https://functions.poehali.dev/90c475ab-fff7-43cf-939b-b30c86ebe79a", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: name.trim(), drinks, allergies }),
+        body: JSON.stringify({ name: name.trim(), drinks: [...drinks, ...(otherDrink.trim() ? [`Другое: ${otherDrink.trim()}`] : [])], allergies }),
       });
       if (res.ok) {
         setStatus("success");
-        setName(""); setDrinks([]); setAllergies("");
+        setName(""); setDrinks([]); setOtherDrink(""); setAllergies("");
       } else {
         setStatus("error");
       }
@@ -158,6 +159,13 @@ function GuestForm() {
             </button>
           ))}
         </div>
+        <input
+          type="text"
+          value={otherDrink}
+          onChange={e => setOtherDrink(e.target.value)}
+          placeholder="Другое..."
+          className="mt-3 w-full border-b border-stone-200 bg-transparent py-2 text-sm text-stone-700 placeholder-stone-300 font-light outline-none focus:border-stone-500 transition-colors"
+        />
       </div>
 
       <div>
@@ -170,6 +178,10 @@ function GuestForm() {
           className="w-full border-b border-stone-200 bg-transparent py-2 text-sm text-stone-700 placeholder-stone-300 font-light outline-none focus:border-stone-500 transition-colors"
         />
       </div>
+
+      <p className="text-[10px] text-stone-400 font-light tracking-wide text-center">
+        Просим ответить до <span className="text-stone-600">10 июля 2026</span>
+      </p>
 
       {status === "error" && (
         <p className="text-xs text-red-400 font-light">Что-то пошло не так, попробуйте ещё раз</p>
