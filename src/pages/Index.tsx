@@ -84,6 +84,108 @@ function Countdown({ targetDate }: { targetDate: string }) {
   );
 }
 
+const DRINKS = ["Вино красное", "Вино белое", "Шампанское", "Виски", "Пиво", "Безалкогольное", "Сок", "Вода"];
+
+function GuestForm() {
+  const [name, setName] = useState("");
+  const [drinks, setDrinks] = useState<string[]>([]);
+  const [allergies, setAllergies] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  const toggleDrink = (drink: string) => {
+    setDrinks(prev => prev.includes(drink) ? prev.filter(d => d !== drink) : [...prev, drink]);
+  };
+
+  const submit = async () => {
+    if (!name.trim()) return;
+    setStatus("loading");
+    try {
+      const res = await fetch("https://functions.poehali.dev/90c475ab-fff7-43cf-939b-b30c86ebe79a", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: name.trim(), drinks, allergies }),
+      });
+      if (res.ok) {
+        setStatus("success");
+        setName(""); setDrinks([]); setAllergies("");
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  };
+
+  if (status === "success") {
+    return (
+      <div className="mt-6 py-8 text-center">
+        <p className="font-cormorant text-2xl text-stone-700">Спасибо!</p>
+        <p className="text-stone-400 text-xs mt-2 font-light tracking-wide">Мы всё учтём</p>
+        <button onClick={() => setStatus("idle")} className="mt-4 text-[10px] tracking-[0.2em] uppercase text-stone-400 underline font-light">
+          Отправить ещё
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <div className="mt-6 text-left space-y-5">
+      <div>
+        <label className="block text-[10px] tracking-[0.2em] uppercase text-stone-400 font-light mb-2">Ваше имя *</label>
+        <input
+          type="text"
+          value={name}
+          onChange={e => setName(e.target.value)}
+          placeholder="Иван Иванов"
+          className="w-full border-b border-stone-200 bg-transparent py-2 text-sm text-stone-700 placeholder-stone-300 font-light outline-none focus:border-stone-500 transition-colors"
+        />
+      </div>
+
+      <div>
+        <label className="block text-[10px] tracking-[0.2em] uppercase text-stone-400 font-light mb-3">Напитки</label>
+        <div className="flex flex-wrap gap-2">
+          {DRINKS.map(drink => (
+            <button
+              key={drink}
+              onClick={() => toggleDrink(drink)}
+              className={`px-3 py-1.5 text-[10px] tracking-[0.1em] uppercase font-light border transition-all duration-200 ${
+                drinks.includes(drink)
+                  ? "bg-stone-800 text-white border-stone-800"
+                  : "border-stone-200 text-stone-500 hover:border-stone-400"
+              }`}
+            >
+              {drink}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <label className="block text-[10px] tracking-[0.2em] uppercase text-stone-400 font-light mb-2">Аллергия на продукты</label>
+        <input
+          type="text"
+          value={allergies}
+          onChange={e => setAllergies(e.target.value)}
+          placeholder="Орехи, лактоза... или нет аллергии"
+          className="w-full border-b border-stone-200 bg-transparent py-2 text-sm text-stone-700 placeholder-stone-300 font-light outline-none focus:border-stone-500 transition-colors"
+        />
+      </div>
+
+      {status === "error" && (
+        <p className="text-xs text-red-400 font-light">Что-то пошло не так, попробуйте ещё раз</p>
+      )}
+
+      <button
+        onClick={submit}
+        disabled={!name.trim() || status === "loading"}
+        className="w-full mt-2 border border-stone-300 text-stone-600 py-3 text-[10px] tracking-[0.25em] uppercase font-light hover:bg-stone-800 hover:text-white hover:border-stone-800 transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed"
+      >
+        {status === "loading" ? "Отправка..." : "Отправить"}
+      </button>
+    </div>
+  );
+}
+
 export default function Index() {
   const [heroVisible, setHeroVisible] = useState(false);
 
@@ -222,6 +324,17 @@ export default function Index() {
                 <p className="text-stone-400 text-[10px] tracking-[0.2em] uppercase mt-1 font-light">Жених</p>
               </div>
             </div>
+          </FadeSection>
+        </section>
+
+        {/* Guest Form */}
+        <section className="py-10 px-6 bg-white">
+          <FadeSection className="text-center">
+            <p className="text-[10px] tracking-[0.35em] uppercase text-stone-400 mb-4 font-light">Ваши пожелания</p>
+            <h2 className="font-cormorant text-2xl font-light text-stone-800 mb-1">Помогите нам подготовиться</h2>
+            <p className="text-stone-400 text-xs font-light mb-6 tracking-wide">Укажите предпочтения по напиткам и аллергии</p>
+            <Divider />
+            <GuestForm />
           </FadeSection>
         </section>
 
