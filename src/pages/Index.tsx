@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
+const HERO_PHOTO = "https://cdn.poehali.dev/projects/82e5d578-9946-42c2-9851-2b63210d5717/bucket/625acbf9-024d-4d3a-9005-2e0ba06608d1.png";
 const COUPLE_PHOTO = "https://cdn.poehali.dev/projects/82e5d578-9946-42c2-9851-2b63210d5717/bucket/297f51a6-9ae2-4781-b00b-f556e63e6eda.jpg";
 
 function useInView(threshold = 0.15) {
@@ -100,9 +101,9 @@ export default function Index() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `url(${COUPLE_PHOTO})`,
-            opacity: 0.18,
-            filter: "grayscale(30%)",
+            backgroundImage: `url(${HERO_PHOTO})`,
+            opacity: 0.22,
+            filter: "grayscale(20%)",
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#faf9f7]/60 via-transparent to-[#faf9f7]" />
