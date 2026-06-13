@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-const COUPLE_PHOTO = "https://cdn.poehali.dev/projects/82e5d578-9946-42c2-9851-2b63210d5717/files/3376b0a3-6237-4a4b-887a-e7652d3ebd7a.jpg";
+const COUPLE_PHOTO = "https://cdn.poehali.dev/projects/82e5d578-9946-42c2-9851-2b63210d5717/bucket/d45870de-3f58-49f3-8074-f103e2f065a1.jpg";
 
 function useInView(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
